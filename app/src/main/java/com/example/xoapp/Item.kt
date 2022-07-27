@@ -10,5 +10,4 @@ import kotlinx.parcelize.Parcelize
 data class Item(
     val id: Int,
     val player: Int,
-    @DrawableRes val icon: Int,
 ) : Parcelable

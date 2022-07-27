@@ -29,17 +29,16 @@ class MyAdapter : ListAdapter<Item, MyAdapter.ItemViewHolder>(MyDiffUtil()) {
         private val binding: LayoutItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-
         fun bind(item: Item) {
-            if (item.icon != 0) {
-                binding.iconButton.setImageResource(item.icon)
+            when (item.player) {
+                1 -> binding.iconButton.setImageResource(R.drawable.ic_x)
+                2 -> binding.iconButton.setImageResource(R.drawable.ic_o)
             }
 
             binding.iconButton.setOnClickListener {
-                callBack?.onItemClick(item)
+                callBack?.onItemClick(adapterPosition)
             }
         }
-
     }
 
     fun setCallBack(callBack: CallBack) {
@@ -47,6 +46,6 @@ class MyAdapter : ListAdapter<Item, MyAdapter.ItemViewHolder>(MyDiffUtil()) {
     }
 
     interface CallBack {
-        fun onItemClick(item: Item)
+        fun onItemClick(itemPosition: Int)
     }
 }

@@ -40,13 +40,16 @@ class ConfigurationFragment : Fragment() {
 
     private fun submitButtonNumber(): Int {
         try {
-            val buttonNumber = binding.buttonQuantityEditText.text.toString()
-
-            if (buttonNumber.isNotEmpty()) {
-                if (buttonNumber == "9") return 3
-                else if (buttonNumber == "16") return 4
-                else if (buttonNumber == "25") return 9
+            when (binding.buttonQuantityEditText.text.toString().toInt()) {
+                9 -> return 3
+                16 -> return 4
+                25 -> return 5
             }
+//            if (buttonNumber.isNotEmpty()) {
+//                if (buttonNumber == "9") return 3
+//                else if (buttonNumber == "16") return 4
+//                else if (buttonNumber == "25") return 9
+//            }
         } catch (e: Exception) {
             return 0
         }
